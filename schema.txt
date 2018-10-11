@@ -1,0 +1,1392 @@
+{
+  "$schema": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/User_1_000.json#",  
+	"info": {
+		"description": "Contrato de Mensagem Padronizada para a usuário do produtos TOTVS",
+		"version": "1.000",
+		"title": "Users",
+		"contact": {
+			"name": "T-Talk",
+			"url": "API.Totvs.com.br",
+			"email": "comiteintegracao@totvs.com.br"
+		},		
+		"x-totvs": {
+			"transactionDefinition": {
+				"subType": "event",
+				"businessContentType": {
+					"type": "object",
+					"$ref": "#/definitions/UserInfo"
+				},
+				"returnContentType": {
+					"type": "object",
+					"$ref": "https://raw.githubusercontent.com/totvs/ttalk-standard-message/master/jsonschema/schemas/ListOfInternalId_1_000.json#/definitions/ReturnContentWithModelType"
+				}
+			},
+			"messageDocumentation": {
+				"name": "Users",
+				"description": "Usuários do Sistema",
+				"segment": "FrameWork"
+			},
+			"productInformation": [{
+					"product": "protheus",
+					"contact": "Protheus_FW@totvs.com.br",
+					"description": "Cadastro de Filial",
+					"adapter": "apcfg230i.prw",
+					"helpUrl": "link aqui"
+				}
+			]
+		}
+	},
+	definitions:
+	  BusinessContentType:
+		type: object
+		properties:
+		  ItemCode:
+			description: C�digo Item
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: operacao.it-codigo
+				required: true
+				type: string
+				length: '16'
+				note: C�digo do item
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: SG2.G2_PRODUTO
+				required: true
+				type: string
+				length: '30'
+				note: C�digo do produto
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ItemInternalID:
+			description: InternalID do Item
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: operacao.it-codigo|operacao.cod-roteiro|operacao.op-codigo
+				required: true
+				type: string
+				length: '16'
+				note: InternalID do item
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: cEmpAnt|cFilAnt|SB1.B1_COD
+				required: true
+				type: string
+				length: '25'
+				note: InternalId do produto
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ItemDescription:
+			description: Descri��o Item
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: item.desc-item
+				required: false
+				type: string
+				length: '60'
+				note: Descri��o do item
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: SB1.B1_DESC
+				required: false
+				type: string
+				length: '40'
+				note: Descri��o do produto
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ScriptCode:
+			description: C�digo Roteiro
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: rot-item.cod-roteiro
+				required: false
+				type: string
+				length: '16'
+				note: C�digo do roteiro
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: SG2.G2_CODIGO
+				required: true
+				type: string
+				length: '20'
+				note: C�digo do roteiro
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ScriptDescription:
+			description: Descri��o Roteiro
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: rot-fabric.descricao
+				required: false
+				type: string
+				length: '30'
+				note: Descri��o do roteiro
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ScriptAlternative:
+			description: Roteiro Alternativo
+			type: string
+			x-totvs:
+			  - product: DATASUL
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: LOGIX
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: PROTHEUS
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+			  - product: RM
+				field: ''
+				required: false
+				type: ''
+				length: ''
+				note: ''
+				available: true
+				canUpdate: false
+		  ListOfActivity:
+			type: array
+			multipleOf: 0.00001
+			items:
+			  type: object
+			  properties:
+				ActivityInternalID:
+				  description: ID Opera��o
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.it-codigo|operacao.cod-roteiro|operacao.op-codigo
+					  required: true
+					  type: string
+					  length: '37'
+					  note: InternalId da Opera��o/Roteiro
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: >-
+						cEmpAnt|SG2.G2_FILIAL|SG2.G2_PRODUTO|SG2.G2_CODIGO|SG2.G2_OPERAC
+					  required: true
+					  type: string
+					  length: '21'
+					  note: InternalID da Opera��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ActivityCode:
+				  description: C�digo Opera��o
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.op-codigo
+					  required: false
+					  type: integer
+					  length: '5'
+					  note: C�digo da Opera��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_OPERAC
+					  required: true
+					  type: string
+					  length: '10'
+					  note: C�digo da Opera��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ActivityDescription:
+				  description: Descri��o Opera��o
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.descricao
+					  required: false
+					  type: string
+					  length: '34'
+					  note: Descri��o da Opera��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_DESCRI
+					  required: false
+					  type: string
+					  length: '40'
+					  note: Descri��o da Opera��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				MachineCode:
+				  description: C�digo M�quina
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_RECURSO
+					  required: false
+					  type: string
+					  length: '6'
+					  note: C�digo da m�quina
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ToolCode:
+				  description: C�digo Ferramenta
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_FERRAM
+					  required: false
+					  type: string
+					  length: '6'
+					  note: C�digo da ferramenta
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ActivityType:
+				  description: >-
+					Tipo opera��o. Define se a opera��o � apontada ou n�o. Aonde
+					1=Aponta e 2=N�o Aponta.
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: ''
+					  required: true
+					  type: integer
+					  length: '2'
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				InitialDate:
+				  description: Data In�cio Real
+				  type: string
+				  format: date
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.data-inicio
+					  required: false
+					  type: date
+					  length: '10'
+					  note: Data inicial da opera��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_DTINI
+					  required: false
+					  type: date
+					  length: '10'
+					  note: Data de in�cio da opera��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				FinalDate:
+				  description: Data Fim Real
+				  type: string
+				  format: date
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.data-termino
+					  required: false
+					  type: date
+					  length: '10'
+					  note: Data final da opera��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_DTFIM
+					  required: false
+					  type: date
+					  length: '10'
+					  note: Data fim da opera��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PercentageScrapValue:
+				  description: '% Refugo'
+				  type: number
+				  minimum: -99999
+				  maximum: 99999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.val-perc-refugo
+					  required: false
+					  type: decimal
+					  length: '5,2'
+					  note: Percentual de refugo
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PercentageValue:
+				  description: Propor��o
+				  type: number
+				  minimum: -99999
+				  maximum: 99999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.proporcao
+					  required: true
+					  type: decimal
+					  length: '5,2'
+					  note: Propor��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				WorkCenterCode:
+				  description: C�digo Centro Trabalho
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.gm-codigo
+					  required: false
+					  type: string
+					  length: '9'
+					  note: Grupo de m�quina
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_CTRAB
+					  required: false
+					  type: string
+					  length: '10'
+					  note: C�digo do centro de trabalho
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				WorkCenterInternalID:
+				  description: InternalID do Centro Trabalho
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.gm-codigo
+					  required: false
+					  type: string
+					  length: '9'
+					  note: Grupo de m�quina
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: cEmpAnt|cFilAnt|SHB.HB_COD
+					  required: false
+					  type: string
+					  length: '16'
+					  note: InternalID do centro de trabalho
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				WorkCenterDescription:
+				  description: Descri��o Centro Trabalho
+				  type: string
+				  x-totvs:
+					- product: DATASUL
+					  field: grup-maquina.descricao
+					  required: false
+					  type: string
+					  length: '32'
+					  note: Descri��o do Grupo de m�quina
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SHB.HB_NOME
+					  required: false
+					  type: string
+					  length: '30'
+					  note: Descri��o do centro de trabalho
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				UnitItemNumber:
+				  description: Unidades
+				  type: integer
+				  format: int32
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.nr-unidades
+					  required: true
+					  type: integer
+					  length: '5'
+					  note: Unidades
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_LOTEPAD
+					  required: false
+					  type: integer
+					  length: '6'
+					  note: Lote padr�o (quantidade de itens feita no tempo padr�o)
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				TimeResource:
+				  description: Tempo Recurso
+				  type: number
+				  minimum: -999999999999999
+				  maximum: 999999999999999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.tempo-homem
+					  required: false
+					  type: decimal
+					  length: '8,3'
+					  note: Tempo homem
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_TEMPAD
+					  required: false
+					  type: decimal
+					  length: '5,2'
+					  note: Tempo recurso
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				TimeMachine:
+				  description: Tempo M�quina
+				  type: number
+				  minimum: -999999999999999
+				  maximum: 999999999999999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.tempo-maquin
+					  required: false
+					  type: decimal
+					  length: '8,3'
+					  note: Tempo M�quina
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				TimeSetup:
+				  description: Tempo Prepara��o
+				  type: number
+				  minimum: -999999999999999
+				  maximum: 999999999999999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.tempo-prepar
+					  required: false
+					  type: decimal
+					  length: '8,3'
+					  note: Tempo Prepara��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: SG2.G2_SETUP
+					  required: false
+					  type: decimal
+					  length: '5,2'
+					  note: Tempo de prepara��o
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				UnitTimeType:
+				  description: >-
+					Tipo Unidade Tempo / 1 - Horas / 2 - Minutos / 3 - Segundos / 4
+					- Dias
+				  type: string
+				  enum:
+					- '1'
+					- '2'
+					- '3'
+					- '4'
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.un-med-tempo
+					  required: true
+					  type: integer
+					  length: '2'
+					  note: Unidade de medida de tempo
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ResourceQuantity:
+				  description: Quantidade Recurso
+				  type: integer
+				  minimum: -999
+				  maximum: 999
+				  format: int32
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.numero-homem
+					  required: true
+					  type: integer
+					  length: '3'
+					  note: N�mero de homens
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				UnitActivityCode:
+				  description: C�digo Unidade Opera��o
+				  type: string
+				  maxLength: 2
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.cod-un-operac
+					  required: false
+					  type: string
+					  length: '2'
+					  note: UM - Opera��o
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ActivityItemValue:
+				  description: Rela��o Opera��o/Item
+				  type: number
+				  minimum: -999999999
+				  maximum: 999999999
+				  x-totvs:
+					- product: DATASUL
+					  field: operacao.val-operac-item
+					  required: true
+					  type: decimal
+					  length: '8,4'
+					  note: Rela��o Operac/Item
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ScriptAlternative:
+				  description: C�digo do roteiro alternativo
+				  type: string
+				  maxLength: 2
+				  x-totvs:
+					- product: DATASUL
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: G2_ROTALT
+					  required: false
+					  type: string
+					  length: '2'
+					  note: C�digo do roteiro alternativo
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+		  ListOfPertOrders:
+			type: array
+			multipleOf: 0.01
+			items:
+			  type: object
+			  properties:
+				NextActivityID:
+				  description: ID Opera��o Sucessora
+				  type: string
+				  maxLength: 10
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.num-id-operacao-sucess
+					  required: true
+					  type: integer
+					  length: '9'
+					  note: ID Sucessora
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				ActivityCode:
+				  description: C�digo Opera��o
+				  type: string
+				  maxLength: 10
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.op-codigo
+					  required: true
+					  type: integer
+					  length: '5'
+					  note: Opera��o Sucessora
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PreviousActivityID:
+				  description: ID Opera��o Predecessora
+				  type: string
+				  maxLength: 10
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.num-id-operacao-predec
+					  required: true
+					  type: integer
+					  length: '9'
+					  note: ID Predecessora
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PreviousScriptCode:
+				  description: C�digo Roteiro Predecessor
+				  type: string
+				  maxLength: 20
+				  x-totvs:
+					- product: DATASUL
+					  field: rot-item.cod-roteiro
+					  required: true
+					  type: string
+					  length: '16'
+					  note: Roteiro
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PreviousActivityCode:
+				  description: C�digo Opera��oPredecessora
+				  type: string
+				  maxLength: 10
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.op-predeces
+					  required: true
+					  type: integer
+					  length: '5'
+					  note: Opera��o Predecessora
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				TimeTransport:
+				  description: Tempo Transporte
+				  type: integer
+				  minimum: -9999999999
+				  maximum: 9999999999
+				  format: int32
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.transporte
+					  required: true
+					  type: decimal
+					  length: '7,2'
+					  note: Tempo Transporte
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				PercentageOverlapValue:
+				  description: '% Overlap'
+				  type: number
+				  minimum: -999999
+				  maximum: 999999
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.overlap
+					  required: false
+					  type: decimal
+					  length: '7,2'
+					  note: Overlap
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+				OverlapQuantity:
+				  description: Quantidade Overlap
+				  type: number
+				  minimum: -999999999
+				  maximum: 999999999
+				  x-totvs:
+					- product: DATASUL
+					  field: rede-pert.qtd-overlap
+					  required: true
+					  type: decimal
+					  length: '9,2'
+					  note: Qtd Overlap
+					  available: true
+					  canUpdate: false
+					- product: LOGIX
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: PROTHEUS
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
+					- product: RM
+					  field: ''
+					  required: false
+					  type: ''
+					  length: ''
+					  note: ''
+					  available: true
+					  canUpdate: false
